@@ -1,14 +1,28 @@
-import Image from "next/image";
+"use client"
+import ImageUploadForm from "@/components/ImageUploadForm";
+import Results from "@/components/Results";
+import {useState} from "react";
+
+export type Category = {
+  category: string,
+  rating: number,
+  comments: string,
+}
+
+export type WatchDetails = {
+  name: string,
+  details: string,
+  results: Category[]
+}
 
 export default function Home() {
+  const [watchDetails, setWatchDetails] = useState<WatchDetails | null>(null)
+
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-
-      </footer>
+    <div>
+      <ImageUploadForm setWatchDetails={setWatchDetails}/>
+      <Results watchDetails={watchDetails} />
     </div>
   );
 }

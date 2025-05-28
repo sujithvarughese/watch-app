@@ -1,30 +1,29 @@
 import {NextResponse} from 'next/server';
-import OpenAI from 'openai';
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_KEY,
-});
+import axios from 'axios';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const {messages} = body;
-
-    if (!messages) {
-      return NextResponse.json(
-        {error: 'Messages are required'},
-        {status: 400}
-      );
-    }
-
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages,
-      temperature: 0.7,
-      max_tokens: 500,
+    const { formattedData } = body;
+    const res = await openai.post("", {
+      model: "gpt-4.1-mini",
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content: process.env.AI_INSTRUCTIONS,
+        },
+        {
+          role: "user",
+          content: [
+            { type: "text", text: "Is this watch authentic?" },
+            ...formattedData
+          ],
+        },
+      ],
     });
-
-    return NextResponse.json(response.choices[0].message);
+    const result = JSON.parse(res?.data?.choices[0].message.content);
+    return NextResponse.json(result);
   } catch (error) {
     console.error('OpenAI API error:', error);
     return NextResponse.json(
@@ -33,3 +32,20 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export const openai = axios.create({
+  baseURL: 'https://api.openai.com/v1/chat/completions',
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${process.env.OPENAI_KEY}`,
+  },
+})
+openai.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    // console.log(error.response)
+    return Promise.reject(error);
+  }
+);

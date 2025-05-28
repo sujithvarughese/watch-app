@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {MantineProvider} from "@mantine/core";
 import '@mantine/core/styles.css';
+import '@mantine/carousel/styles.css';
 import {NavBar} from "@/navigation/Navbar";
 import {Footer} from "@/navigation/Footer";
 
@@ -31,7 +32,7 @@ export default function RootLayout({
       <body>
         <MantineProvider>
           <NavBar />
-            {children}
+            <main>{children}</main>
           <Footer />
         </MantineProvider>
       </body>
