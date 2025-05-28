@@ -1,6 +1,4 @@
 'use client';
-
-import {useState} from 'react';
 import {
   Container,
   Group,
@@ -8,8 +6,7 @@ import {
   Paper,
   Transition,
   Stack,
-  Text,
-  Box
+  Box, Image
 } from '@mantine/core';
 import {useDisclosure} from '@mantine/hooks';
 import Link from 'next/link';
@@ -29,7 +26,7 @@ export function NavBar() {
       <Container size="lg" className="py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-xl font-bold no-underline">
-            Logo
+            <Image src="/logo.png" alt="logo" w={130} />
           </Link>
 
           <Group gap={5} visibleFrom="sm">

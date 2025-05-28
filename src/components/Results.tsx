@@ -10,8 +10,8 @@ const Results = ({ watchDetails }: {watchDetails: WatchDetails | null}) => {
 
   console.log(watchDetails)
   return (
-    <Box maw={900} mx="auto" p={20}>
-      <Text size="xl" mb={10}>{name}</Text>
+    <Box maw={900} mx="auto" p={40} mt={20}>
+    <Text size="xl" mb={10}>{name}</Text>
       <Text size="sm" mb={10}>{details}</Text>
       {results?.length > 0 &&
       <BarChart
@@ -19,10 +19,10 @@ const Results = ({ watchDetails }: {watchDetails: WatchDetails | null}) => {
         data={results}
         type="default"
         withBarValueLabel={true}
-        withTooltip={false}
+        withTooltip={true}
         dataKey="category"
         orientation="vertical"
-
+        p={20}
         xAxisLabel="Rating"
         xAxisProps={{domain: [0, 10]}}
         barProps={{radius: 10, height: 500}}
@@ -31,9 +31,19 @@ const Results = ({ watchDetails }: {watchDetails: WatchDetails | null}) => {
       />
       }
       {results?.map(result =>
-        <Box key={result.category}>
-          <Text fw={700}>{result.category} - {result.rating} / 10</Text>
-          <p>{result.comments}</p>
+        <Box
+          key={result.category}
+          p="md"
+          mb="md"
+          bg="gray.0"
+          style={{
+            borderRadius: 8,
+            transition: 'transform 0.2s',
+            '&:hover': {transform: 'translateY(-2px)'}
+          }}
+        >
+          <Text fw={700} mb={8}>{result.category} - {result.rating} / 10</Text>
+          <Text size="sm" c="gray.7">{result.comments}</Text>
         </Box>
       )}
     </Box>
