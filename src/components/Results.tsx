@@ -1,6 +1,6 @@
 import { BarChart } from '@mantine/charts';
 import {Box, Text} from "@mantine/core";
-import type { WatchDetails, Category } from "@/app/page";
+import type { WatchDetails } from "@/app/page";
 
 
 

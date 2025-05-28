@@ -1,5 +1,5 @@
 "use client"
-import {Container, Title, Text, Space, List, ThemeIcon, Box, Group, Anchor} from '@mantine/core';
+import {Container, Title, Text, Space, List, ThemeIcon, Box } from '@mantine/core';
 import {IconCheck} from '@tabler/icons-react';
 
 const About = () => {
