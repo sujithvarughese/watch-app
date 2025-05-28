@@ -1,6 +1,6 @@
 import ImageUploadDropZone from "./ImageUploadDropZone";
 import {useEffect, useState} from "react";
-import {Button, Flex, Image, Text} from "@mantine/core";
+import {Button, Flex, Image} from "@mantine/core";
 import useAuthenticateWatch from "../hooks/useAuthenticateWatch";
 import {Carousel} from "@mantine/carousel";
 

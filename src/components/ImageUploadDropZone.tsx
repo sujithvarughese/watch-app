@@ -5,7 +5,7 @@ import Resizer from "react-image-file-resizer";
 
 type ImageUploadDropZoneProps = {
   images: string[],
-  setImages: (arg: any) => void,
+  setImages: (arg: any[]) => void,
 }
 
 const ImageUploadDropZone = ({ images, setImages, ...props }: ImageUploadDropZoneProps) => {

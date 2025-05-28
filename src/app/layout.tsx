@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {Image, MantineProvider} from "@mantine/core";
 import '@mantine/core/styles.css';
@@ -7,15 +6,6 @@ import '@mantine/carousel/styles.css';
 import {NavBar} from "@/navigation/Navbar";
 import {Footer} from "@/navigation/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
