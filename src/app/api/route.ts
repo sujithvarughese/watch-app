@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   }
 }
 
-export const openai = axios.create({
+const openai = axios.create({
   baseURL: 'https://api.openai.com/v1/chat/completions',
   headers: {
     "Content-Type": "application/json",
