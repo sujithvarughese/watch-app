@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {MantineProvider} from "@mantine/core";
+import {Image, MantineProvider} from "@mantine/core";
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import {NavBar} from "@/navigation/Navbar";
@@ -32,6 +32,7 @@ export default function RootLayout({
       <body>
         <MantineProvider>
           <NavBar />
+          <Image src="/banner.jpeg" alt="logo" h={200} />
             <main>{children}</main>
           <Footer />
         </MantineProvider>

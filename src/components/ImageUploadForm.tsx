@@ -29,7 +29,7 @@ const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (arg: any) => v
     <Flex direction="column" justify="center" align="center" p="xl">
       <Text>Please upload images of your watch.</Text>
       <ImageUploadDropZone images={images} setImages={setImages} />
-      {images.length <= 1 ?
+      {images.length === 1 ?
         <Image src={images[images.length - 1]} alt="image" w={300} h={300} />
       :
       <Carousel

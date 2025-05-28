@@ -11,6 +11,7 @@ type ImageUploadDropZoneProps = {
 const ImageUploadDropZone = ({ images, setImages, ...props }: ImageUploadDropZoneProps) => {
 
   const updateImages = async (file: File) => {
+    if (images.length >= 5) return
     const resizedFile = await resizeFile(file)
     setImages([...images, resizedFile])
   }
@@ -37,6 +38,7 @@ const ImageUploadDropZone = ({ images, setImages, ...props }: ImageUploadDropZon
       onDrop={(files) => updateImages(files[files.length - 1])}
       onReject={(files) => console.log('rejected files', files)}
       maxSize={5 * 1024 ** 2}
+      maxFiles={5}
       accept={IMAGE_MIME_TYPE}
       {...props}
     >
@@ -56,7 +58,7 @@ const ImageUploadDropZone = ({ images, setImages, ...props }: ImageUploadDropZon
             Drag images here or click to select files
           </Text>
           <Text size="sm" c="dimmed" inline mt={7}>
-            Attach as many files as you like, each file should not exceed 5mb
+            Attach up to 5 files, each file should not exceed 5mb
           </Text>
         </div>
       </Group>
