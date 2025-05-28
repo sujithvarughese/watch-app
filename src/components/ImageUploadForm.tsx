@@ -3,8 +3,9 @@ import {useEffect, useState} from "react";
 import {Button, Flex, Image} from "@mantine/core";
 import useAuthenticateWatch from "../hooks/useAuthenticateWatch";
 import {Carousel} from "@mantine/carousel";
+import { WatchDetails } from "@/app/page";
 
-const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (details: unknown) => void }) => {
+const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (watchDetails: WatchDetails) => void }) => {
 
   const [images, setImages] = useState<string[]>([])
   const { loading, error, response, fetchData } = useAuthenticateWatch();
@@ -23,7 +24,9 @@ const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (details: unkno
     if (!response) {
       return
     }
-    setWatchDetails(response)
+    if (typeof response === "object" && response !== null && "name" in response && "details" in response && "results" in response) {
+      setWatchDetails(response as WatchDetails)
+    }
   }, [response]);
 
   return (
