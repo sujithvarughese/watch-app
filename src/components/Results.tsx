@@ -19,13 +19,12 @@ const Results = ({ watchDetails }: {watchDetails: WatchDetails | null}) => {
         data={results}
         type="default"
         withBarValueLabel={true}
-        withTooltip={true}
+        withTooltip={false}
         dataKey="category"
         orientation="vertical"
-        p={20}
         xAxisLabel="Rating"
         xAxisProps={{domain: [0, 10]}}
-        barProps={{radius: 10, height: 500}}
+        barProps={{radius: 10 }}
         series={[{name: 'rating', color: 'blue.6'}]}
         getBarColor={(value) => getColor(value)}
       />
@@ -51,7 +50,7 @@ const Results = ({ watchDetails }: {watchDetails: WatchDetails | null}) => {
 };
 
 const getColor = (rating: number) => {
-  if (rating >= 9) {
+  if (rating >= 8) {
     return 'green.6';
   }
   if (rating >= 6) {

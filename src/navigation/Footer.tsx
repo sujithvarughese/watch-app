@@ -1,6 +1,6 @@
 'use client';
 
-import {Box, Container, Grid, Group, Text} from '@mantine/core';
+import {Box, Container, Grid, Group, Image, Text} from '@mantine/core';
 import Link from 'next/link';
 
 const navigationLinks = [
@@ -26,7 +26,7 @@ export function Footer() {
           <Grid.Col span={{base: 12, sm: 4}}>
             <div className="flex flex-col items-center sm:items-start gap-4">
               <Link href="/" className="text-xl font-bold no-underline">
-                Logo
+                <Image src="/logo.png" alt="logo" w={130} />
               </Link>
               <Text size="sm" className="text-gray-600 text-center sm:text-left">
                 Your trusted partner in excellence
@@ -36,7 +36,6 @@ export function Footer() {
 
           <Grid.Col span={{base: 12, sm: 4}}>
             <div className="flex flex-col items-center gap-4">
-              <Text className="font-semibold">Navigation</Text>
               <Group gap={16}>
                 {navigationLinks.map((link) => (
                   <Link
@@ -72,7 +71,7 @@ export function Footer() {
 
           <Grid.Col span={12}>
             <Text size="sm" className="text-center text-gray-500 mt-8">
-              © {year} Company Name. All rights reserved.
+              © {year} Authentime. All rights reserved.
             </Text>
           </Grid.Col>
         </Grid>
