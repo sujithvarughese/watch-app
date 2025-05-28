@@ -14,6 +14,7 @@ const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (details: unkno
     try {
       fetchData(images);
     } catch (err) {
+      console.log(err)
       throw new Error(error || 'An error occurred');
     }
   }
