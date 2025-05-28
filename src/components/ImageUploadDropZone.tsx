@@ -5,14 +5,14 @@ import Resizer from "react-image-file-resizer";
 
 type ImageUploadDropZoneProps = {
   images: string[],
-  setImages: (arg: any[]) => void,
+  setImages: (images: string[]) => void,
 }
 
 const ImageUploadDropZone = ({ images, setImages, ...props }: ImageUploadDropZoneProps) => {
 
   const updateImages = async (file: File) => {
     if (images.length >= 5) return
-    const resizedFile = await resizeFile(file)
+    const resizedFile = await resizeFile(file) as string
     setImages([...images, resizedFile])
   }
 
