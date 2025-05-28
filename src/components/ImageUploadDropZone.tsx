@@ -55,7 +55,7 @@ const ImageUploadDropZone = ({ images, setImages, ...props }: ImageUploadDropZon
 
         <div>
           <Text size="xl" inline>
-            Drag images here or click to select files
+            Drag watch images here or click to select files
           </Text>
           <Text size="sm" c="dimmed" inline mt={7}>
             Attach up to 5 files, each file should not exceed 5mb

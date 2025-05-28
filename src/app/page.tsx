@@ -2,6 +2,7 @@
 import ImageUploadForm from "@/components/ImageUploadForm";
 import Results from "@/components/Results";
 import {useState} from "react";
+import About from "@/components/About";
 
 export type Category = {
   category: string,
@@ -21,6 +22,7 @@ export default function Home() {
 
   return (
     <div>
+      <About />
       <ImageUploadForm setWatchDetails={setWatchDetails}/>
       <Results watchDetails={watchDetails} />
     </div>
