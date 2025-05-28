@@ -4,7 +4,7 @@ import {Button, Flex, Image} from "@mantine/core";
 import useAuthenticateWatch from "../hooks/useAuthenticateWatch";
 import {Carousel} from "@mantine/carousel";
 
-const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (details: object) => void }) => {
+const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (details: unknown) => void }) => {
 
   const [images, setImages] = useState<string[]>([])
   const { loading, error, response, fetchData } = useAuthenticateWatch();
