@@ -4,6 +4,7 @@ import {Button, Flex, Image} from "@mantine/core";
 import useAuthenticateWatch from "../hooks/useAuthenticateWatch";
 import {Carousel} from "@mantine/carousel";
 import { WatchDetails } from "@/app/page";
+import Loading from "@/components/Loading";
 
 const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (watchDetails: WatchDetails) => void }) => {
 
@@ -48,10 +49,11 @@ const ImageUploadForm = ({ setWatchDetails }: { setWatchDetails: (watchDetails: 
         )}
       </Carousel>
       }
-      <Flex gap={16}>
-        <Button loading={loading} onClick={handleSubmit}>Submit</Button>
-        <Button onClick={() => setImages([])}>Reset</Button>
+      <Flex gap={16} mt={12}>
+        <Button disabled={loading} onClick={handleSubmit}>Submit</Button>
+        <Button disabled={loading} onClick={() => setImages([])}>Reset</Button>
       </Flex>
+      {loading && <Loading />}
     </Flex>
   );
 };
