@@ -1,6 +1,6 @@
 'use client';
 
-import {Box, Container, Grid, Group, Image, Text} from '@mantine/core';
+import {Box, Container, Flex, Grid, Group, Image, Text} from '@mantine/core';
 import Link from 'next/link';
 
 const navigationLinks = [
@@ -11,9 +11,7 @@ const navigationLinks = [
 ];
 
 const socialLinks = [
-  {link: 'https://twitter.com', label: 'Twitter', icon: '𝕏'},
-  {link: 'https://facebook.com', label: 'Facebook', icon: 'f'},
-  {link: 'https://linkedin.com', label: 'LinkedIn', icon: 'in'},
+  {link: 'https://x.com/authentime', label: 'Twitter', icon: '𝕏'},
 ];
 
 export function Footer() {
@@ -51,8 +49,8 @@ export function Footer() {
           </Grid.Col>
 
           <Grid.Col span={{base: 12, sm: 4}}>
-            <div className="flex flex-col items-center sm:items-end gap-4">
-              <Text className="font-semibold">Follow Us</Text>
+            <Flex align="center" justify="center" className="text-center sm:text-left" gap={8}>
+              <Text className="font-semibold">Follow us on</Text>
               <Group gap={16}>
                 {socialLinks.map((link) => (
                   <a
@@ -66,7 +64,7 @@ export function Footer() {
                   </a>
                 ))}
               </Group>
-            </div>
+            </Flex>
           </Grid.Col>
 
           <Grid.Col span={12}>
